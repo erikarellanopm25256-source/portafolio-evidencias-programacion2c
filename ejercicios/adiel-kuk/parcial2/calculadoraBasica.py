@@ -45,5 +45,4 @@ while(opcion != 5):
         #finalizacion del programa
         print("Programa finalizando...")
     else:
-        #mensaje de error por opcion no valida 
-        "mensaje de error por opcion no valida, intenta nuevamente"
+        print("opcion seleccionada no valida,intenta nueva mente")
