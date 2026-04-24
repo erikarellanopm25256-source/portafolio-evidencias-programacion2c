@@ -94,3 +94,6 @@ iva = calcular_iva(subtotal_con_desc)
 total_final = subtotal_con_desc + iva
 
 mostrar_ticket(producto, subtotal, descuento, iva, total_final)
+#El punto de entrada oficial del programa
+if __name__== "__main__":
+  main()
