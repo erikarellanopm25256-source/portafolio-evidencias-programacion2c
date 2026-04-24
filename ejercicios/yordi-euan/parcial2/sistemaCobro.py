@@ -13,30 +13,19 @@ def capturar_datos():
     cantidad = int(input("Cantidad: "))
     return nombre, precio, cantidad
 
+
 # --- FUNCION 2: Calcular el subtotal ---
 def calcular_subtotal(precio, cantidad):
     """
     Calcula el subtotal multiplicando el precio por la cantidad.
-
-    Argumentos:
-        precio (float): Precio unitario.
-        cantidad (int): Número de unidades.
-
-    Retorno:
-        float: Resultado de la multiplicación.
     """
     return precio * cantidad
+
 
 # --- FUNCION 3: Aplicar descuento ---
 def aplicar_descuento(monto):
     """
     Aplica un descuento del 10% si el monto es mayor a $1000.
-
-    Argumentos:
-        monto (float): El subtotal de la compra.
-
-    Retorno:
-        float: Valor del descuento a restar.
     """
     if monto > 1000:
         descuento = monto * 0.10
@@ -45,30 +34,19 @@ def aplicar_descuento(monto):
     else:
         return 0
 
+
 # --- FUNCION 4: Calcular IVA ---
 def calcular_iva(monto):
     """
-    Calcula el impuesto IVA del 16%.
-
-    Argumentos:
-        monto (float): Monto sobre el cual calcular el impuesto.
-
-    Retorno:
-        float: Valor del IVA calculado.
+    Calcula el IVA del 16%.
     """
     return monto * 0.16
 
-# --- FUNCION 5: Imprimir el ticket ---
+
+# --- FUNCION 5: Imprimir ticket ---
 def mostrar_ticket(producto, sub, desc, iva, total):
     """
-    Muestra en pantalla el ticket de venta formateado.
-
-    Argumentos:
-        producto (str): Nombre del artículo.
-        sub (float): Monto del subtotal.
-        desc (float): Monto del descuento.
-        iva (float): Monto del impuesto.
-        total (float): Monto final a pagar.
+    Muestra el ticket de venta.
     """
     print("\n--- TICKET DE VENTA ---")
     print(f"Producto: {producto}")
@@ -78,22 +56,21 @@ def mostrar_ticket(producto, sub, desc, iva, total):
     print(f"TOTAL A PAGAR: ${total:.2f}")
     print("------------------------")
 
-# ==============================================
-#              PROGRAMA PRINCIPAL
-# ==============================================
 
-print("--- Sistema de Cobro v1.0 ---")
+# --- FUNCION PRINCIPAL ---
+def main():
+    print("--- Sistema de Cobro v1.0 ---")
 
-# Llamamos a las funciones en orden
-producto, precio, cantidad = capturar_datos()
+    producto, precio, cantidad = capturar_datos()
 
-subtotal = calcular_subtotal(precio, cantidad)
-descuento = aplicar_descuento(subtotal)
-subtotal_con_desc = subtotal - descuento
-iva = calcular_iva(subtotal_con_desc)
-total_final = subtotal_con_desc + iva
+    subtotal = calcular_subtotal(precio, cantidad)
+    descuento = aplicar_descuento(subtotal)
+    subtotal_con_desc = subtotal - descuento
+    iva = calcular_iva(subtotal_con_desc)
+    total_final = subtotal_con_desc + iva
 
-mostrar_ticket(producto, subtotal, descuento, iva, total_final)
-#El punto de entrada oficial del programa
-if __name__== "__main__":
-  main()
+    mostrar_ticket(producto, subtotal, descuento, iva, total_final)
+
+
+# Ejecutar programa
+main()
